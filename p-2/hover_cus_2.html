@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.cssAnim {
+  padding: 15px 0;
+  width: 150px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #cfcfcf;
+  border: #999 1px solid;
+  transition: all .3s liner;
+}
+
+.bdrRadius {
+  border-radius: 15px;
+}
+
+</style>
+</head>
+<body>
+
+  <a href="#" class="cssAnim">BUTTON</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$('.cssAnim').hover(function(){
+  $(this).addClass('bdrRadius');
+}, function(){
+  $(this).removeClass('bdrRadius');
+});
+
+</script>
+
+</body>
+</html>
