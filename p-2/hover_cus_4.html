@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.cssAnim {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+  background-color: #ccc;
+  border: #333 1px solid;
+  position: relative;
+}
+
+.cssAnim img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  transition: all .3s linear;
+}
+
+.imgScale img {
+  transform: scale(1.5);
+}
+
+</style>
+</head>
+<body>
+
+  <a href="#" class="cssAnim">
+    <img src="ch_4.jpg" alt="非金属性車椅子">
+  </a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$('.cssAnim').hover(function(){
+  $(this).addClass('imgScale');
+}, function(){
+  $(this).removeClass('imgScale');
+});
+
+</script>
+
+</body>
+</html>
