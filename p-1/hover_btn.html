@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.fadeBtn {
+  width: 200px;
+  height: 70px;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 70px;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  background: #ddd;
+  border: #fff 2px solid;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #555;
+}
+
+</style>
+</head>
+<body>
+
+  <a href="#" class="fadeBtn">BUTTON</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$('.fadeBtn').hover(function(){
+  $(this).stop().animate({opacity: '0.5', fontSize: '22px'}, 300);
+}, function(){
+  $(this).stop().animate({opacity: '1', fontSize: '18px'}, 300);
+});
+
+</script>
+
+</body>
+</html>
