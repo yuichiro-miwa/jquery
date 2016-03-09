@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.ttpShow {
+  display: none;
+}
+
+#ttpPanel {
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  display: none;
+  background: #fff;
+  border: #ccc 3px solid;
+  position: absolute;
+  z-index: 99;
+}
+
+</style>
+</head>
+<body>
+
+<a href="#">校庭の隅の桜の木のところ<span class="ttpShow">ジョバンニは何べんも眼を拭いながら活字をだんだん拾いました</span></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$('a:has(.ttpShow)').mouseover(function(e) {
+  $('body').append('<div id="ttpPanel">' + $(this).children('.ttpShow').html() + '</div>');
+  $('#ttpPanel').css({top:(e.pageY + 10) + 'px', left:(e.pageX + 10) + 'px'}).fadeIn('fast');
+}).mousemove(function(e) {
+  $('#ttpPanel').css({top:(e.pageY + 10) + 'px', left:(e.pageX + 10) + 'px'});
+}).mouseout(function(e) {
+  $('#ttpPanel').remove();
+});
+
+</script>
+
+</body>
+</html>
