@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.ticker {
+  margin: 0 auto;
+  padding: 10px 20px;
+  width: 500px;
+  text-align: left;
+  background: #fff;
+  background: linear-gradient(to bottom, #fff 50%, #efefef 100%);
+  border: #ccc 2px solid;
+  border-radius: 25px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.ticker ul {
+  width: 100%;
+  height: 20px;
+  position: relative;
+}
+
+.ticker ul li {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  display: none;
+  position: absolute;
+}
+
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <ul>
+    <li><a href="#5">ニュース５</a></li>
+    <li><a href="#4">ニュースnews</a></li>
+    <li><a href="#3">ニュース３</a></li>
+    <li><a href="#2">ニュース２</a></li>
+    <li><a href="#1">ニュース１</a></li>
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$(function(){
+  $(window).load(function(){
+    var thisTicker = $('.ticker'),
+    tickerUl = thisTicker.find('ul'),
+    tickerLl = tickerUl.find('li'),
+    liFirst = tickerUl.find('li:first'),
+    ulWidth = tickerUl.width();
+
+    liFirst.css({left:ulWidth,display:'block',opacity:'0',zIndex:'98'}).stop().animate({left:'0',opacity:'1'},1000,'linear').addClass('showlist');
+
+    setInterval(function(){
+      var showLi = thisTicker.find('.showlist');
+
+      showLi.animate({left:-(ulWidth),opacity:'0'},1000,'linear').next().css({left:ulWidth,display:'block',opacity:'0',zIndex:'99'}).animate({left:'0',opacity:'1'},1000,'linear').addClass('showlist').end().appendTo(tickerUl).css({zIndex:'98'}).removeClass('showlist');
+    },6000);
+  });
+});
+
+
+</script>
+
+</body>
+</html>
