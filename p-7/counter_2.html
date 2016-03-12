@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.inputCount {
+  margin: 0 auto;
+  width: 500px;
+  text-align: left;
+}
+
+.inputCount .count {
+  font-size: 1em;
+  text-align: right;
+}
+
+.inputCount .countBelow {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.inputCount textarea {
+  width: 500px;
+  height: 300px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="inputCount">
+  <div class="count">0</div>
+  <textarea></textarea>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+var countMax = 120,
+    countThis = $('.inputCount');
+
+countThis.find('.count').text(countMax);
+
+countThis.find('textarea').on('keydown keyup keypress change', function(){
+  var thisValueLength = $(this).val().length,
+      countDown = countMax - thisValueLength;
+  countThis.find('.count').text(countDown);
+
+  if(countDown < 0){
+    countThis.find('.count').addClass('countBelow');
+  } else {
+    countThis.find('.count').removeClass('countBelow');
+  }
+
+})
+
+</script>
+
+</body>
+</html>
