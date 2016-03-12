@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+#menuList {
+  width: 200px;
+  float: left;
+  box-shadow: 0 0 4px #999;
+}
+
+#menuList > ul {
+  border-top: #555 1px solid;
+  border-left: #555 1px solid;
+}
+
+#menuList > ul >li {
+  border-right: #555 1px solid;
+  border-bottom: #555 1px solid;
+}
+
+#menuList > ul > li > a {
+  padding: 15px 25px;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  background: #bbb;
+  background: liner-gradient(to bottom, #fff 50%, #bbb 100%);
+  border: #fff 1px solid;
+}
+
+#menuList > ul > li > a:hover {
+  background: #fff;
+}
+
+</style>
+</head>
+<body>
+
+ <div id="wrappper">
+   <nav id="menuList">
+     <ul>
+       <li><a href="">ワーク</a></li>
+       <li><a href="">プロダクト</a></li>
+       <li><a href="">リクルート</a></li>
+       <li><a href="">ブログ</a></li>
+       <li><a href="">コンタクト</a></li>
+     </ul>
+   </nav>
+   <div id="contents">
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad laboriosam tenetur voluptatem quas totam libero mollitia magnam deserunt quia, ratione iusto blanditiis alias, commodi, architecto cum odit in consequatur earum!</p>
+
+   </div>
+ </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$(function(){
+  var setFixed = $('#menuList'),
+      menuTop = setFixed.offset().top;
+
+  $(window).on('load scroll resize', function(){
+    if($(window).scrollTop() > menuTop){
+      setFixed.css({top: '0', position: 'fixed'});
+    } else {
+      setFixed.css({top: 'auto', position: 'static'});
+    }
+  })
+});
+
+
+</script>
+
+</body>
+</html>
