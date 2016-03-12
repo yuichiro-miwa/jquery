@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.scrEvent {
+  height: 500px;
+  text-align: left;
+  display: none;
+}
+
+.area1 {background: #fff;}
+.area2 {background: #eee;}
+.area3 {background: #ddd;}
+.area4 {background: #ccc;}
+.area5 {background: #bbb;}
+.area6 {background: #aaa;}
+
+p {
+  padding: 100px 0;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<div class="scrEvent area1">
+  <p>ここはコンテンツエリア1</p>
+</div>
+<div class="scrEvent area2">
+  <p>ここはコンテンツエリア2</p>
+</div>
+<div class="scrEvent area3">
+  <p>ここはコンテンツエリア3</p>
+</div>
+<div class="scrEvent area4">
+  <p>ここはコンテンツエリア4</p>
+</div>
+<div class="scrEvent area5">
+  <p>ここはコンテンツエリア5</p>
+</div>
+<div class="scrEvent area6">
+  <p>ここはコンテンツエリア6</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$(function(){
+  var setArea = $('.scrEvent'),
+  showHeight = 150;
+
+  setArea.css({display:'block',opacity:'0'});
+
+  $(window).on('load scroll resize',function(){
+    setArea.each(function(){
+      var setThis = $(this),
+      areaTop = setThis.offset().top;
+
+      if ($(window).scrollTop() >= (areaTop + showHeight) - $(window).height()){
+        setThis.stop().animate({opacity:'1'},500);
+      } else {
+        setThis.stop().animate({opacity:'0'},500);
+      }
+    });
+  });
+});
+
+
+</script>
+
+</body>
+</html>
