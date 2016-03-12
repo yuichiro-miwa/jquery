@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+div {
+  height: 1000px;
+}
+
+p {
+  position: fixed;
+}
+
+.scrollBottom {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+
+<p>現在のスクロール値:<span>0</span></p>
+
+<div></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$(function(){
+  $(window).on('load scroll resize', function(){
+    var scrollTop = $(window).scrollTop();
+    $('p > span').text(scrollTop);
+
+    var posBottom = $(document).height() - window.innerHeight;
+    if(scrollTop >= posBottom){
+      $('p').addClass('scrollBottom');
+    } else {
+      $('p').removeClass('scrollBottom');
+    }
+  })
+});
+
+</script>
+
+</body>
+</html>
