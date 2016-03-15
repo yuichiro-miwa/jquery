@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+.delayLoad {
+  margin: 0 auto;
+  width: 8000px;
+  text-align: center;
+}
+
+.delayLoad > ul {
+  width: 100%;
+}
+
+.delayLoad > ul > li {
+  margin: 5px;
+  width: 150px;
+  float: left;
+  visibility: hidden;
+}
+
+</style>
+</head>
+<body>
+
+<div class="delayLoad">
+  <ul>
+    <li><img src="images/photo1.JPG" alt="" width="150"></li>
+    <li><img src="images/photo2.JPG" alt="" width="150"></li>
+    <li><img src="images/photo3.JPG" alt="" width="150"></li>
+    <li><img src="images/photo4.JPG" alt="" width="150"></li>
+    <li><img src="images/photo5.JPG" alt="" width="150"></li>
+    <li><img src="images/photo6.JPG" alt="" width="150"></li>
+    <li><img src="images/photo7.JPG" alt="" width="150"></li>
+    <li><img src="images/photo8.JPG" alt="" width="150"></li>
+    <li><img src="images/photo9.JPG" alt="" width="150"></li>
+    <li><img src="images/photo10.JPG" alt="" width="150"></li>
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$(function(){
+  var setElm = $('.delayLoad > ul > li'),
+  delayTime = 100;
+
+  $(window).load(function(){
+    function randomShow(){
+      var elmLength = setElm.length,
+      randomSet = Math.floor(Math.random()*elmLength);
+
+      $(setElm[randomSet]).css({visibility:'visible',opacity:'0'}).animate({opacity:'1'},1000);
+      setElm.splice(randomSet,1);
+
+      if(elmLength > 0) {
+        setTimeout(function(){
+          randomShow();
+        },delayTime);
+      } else {
+        return false;
+      }
+    }
+
+    randomShow();
+  });
+});
+
+
+</script>
+
+</body>
+</html>
