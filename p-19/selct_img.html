@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+<style>
+
+#filterBtn {
+  padding-bottom: 30px;
+}
+
+#filterBtn a {
+  margin: 0 10px;
+  padding: 5px 30px;
+  background: #fff;
+  background: linear-gradient(to bottom, #fff 40%, #ddd 100%);
+  border: #ddd 1px solid;
+  border-radius: 30px;
+}
+
+#filterBtn a:hover {
+  background: #fff;
+}
+
+#filterBtn a.active {
+  color: #f00;
+  font-weight: bold;
+  background: #fff;
+}
+
+#filterBtn ul {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+}
+
+#filterList ul li {
+  margin: 5px;
+  width: 150px;
+  float: left;
+}
+
+#filterList ul li img {
+  width: 150px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="filterBtn">
+  <a href="javascript:void(0);" class="allItem">All</a>
+  <a href="javascript:void(0);" class="test1">test1</a>
+  <a href="javascript:void(0);" class="test2">test2</a>
+  <a href="javascript:void(0);" class="test3">test3</a>
+</div>
+
+<div id="filterList">
+  <ul>
+    <li class="test1"><img src="images/photo1.JPG" alt="" width="150"></li>
+    <li class="test2"><img src="images/photo2.JPG" alt="" width="150"></li>
+    <li class="test3"><img src="images/photo3.JPG" alt="" width="150"></li>
+    <li class="test1"><img src="images/photo4.JPG" alt="" width="150"></li>
+    <li class="test1"><img src="images/photo5.JPG" alt="" width="150"></li>
+    <li class="test3"><img src="images/photo6.JPG" alt="" width="150"></li>
+    <li class="test1"><img src="images/photo7.JPG" alt="" width="150"></li>
+    <li class="test2"><img src="images/photo8.JPG" alt="" width="150"></li>
+    <li class="test2"><img src="images/photo9.JPG" alt="" width="150"></li>
+    <li class="test1"><img src="images/photo10.JPG" alt="" width="150"></li>
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+
+$(function(){
+  var setFilter   = $('#filterBtn'),
+      filterBtn   = setFilter.find('a'),
+      btnAll      = $('.allItem'),
+      setList     = $('#filterList'),
+      filterList  = setList.find('li'),
+      listWidth   = filterList.outerWidth();
+
+  filterBtn.click(function(){
+    if(!($(this).hasClass('active'))){
+      var filterClass = $(this).attr('class');
+
+      filterList.each(function(){
+        if($(this).hasClass(filterClass)){
+          $(this).css({display:'block'}).stop().animate({width:listWidth}, 1500);
+          $(this).find('*').stop().animate({opacity:'1'}, 1500);
+        } else {
+          $(this).find('*').stop().animate({opacity:'0'}, 1000);
+          $(this).stop().animate({width:'0'}, 1500, function(){
+            $(this).css({display:'none'});
+          });
+        }
+      });
+      filterBtn.removeClass('active');
+      $(this).addClass('active');
+  }
+  });
+
+  btnAll.click(function(){
+    filterList.each(function(){
+      $(this).css({display:'block'}).stop().animate({width:listWidth}, 1500);
+      $(this).find('*').stop().animate({opacity:'1'}, 1500);
+    });
+  });
+
+  btnAll.click();
+
+});
+
+
+</script>
+
+</body>
+</html>
