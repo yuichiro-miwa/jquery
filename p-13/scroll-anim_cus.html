@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>スクロールアニメーションテスト</title>
+</head>
+<style>
+
+.height {
+  height: 1000px;
+}
+
+#fixedTop {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 300px;
+  background-color: blue;
+  opacity: 0.5;
+  display: none;
+}
+
+.test {
+  text-align: center;
+  background-color: #fff;
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 20px;
+}
+
+</style>
+<body>
+
+  <div class="height">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit expedita dolorum delectus sit minima facilis id maxime est, quibusdam ex repudiandae iusto magni quis, repellat? Nobis reiciendis corrupti fuga iure.</p>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+$(function(){
+  $('body').append('<div id="fixedTop"><p>テスト投稿</p><a class="test">閉じる</a></div>');
+  var fixedTop = $('#fixedTop');
+  $('.test').on('click', function(){
+    fixedTop.remove();
+  });
+  $(window).on('load scroll resize', function(){
+    var showTop = 100;
+    if($(window).scrollTop() > showTop){
+      fixedTop.fadeIn('normal');
+    } else {
+      fixedTop.fadeOut('normal')
+    }
+  });
+});
+</script>
+</body>
+</html>
